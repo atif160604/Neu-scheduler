@@ -1,0 +1,41 @@
+.parent {
+    width: 75%;
+    height: 10%;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border: 0.1px solid gray;
+    position: relative;
+}
+
+.child {
+    height: 12px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border: 0.1px solid gray;
+    position: relative;
+}
+
+.scrollable {
+    height: 200px;
+    overflow-y: auto;
+    border: 0px
+}
+
+.color-test {
+    background-color: red;
+}
+.overlay {
+    position: absolute;            /* Overlay over the parent div */
+    top: 0;                        /* Position from top */
+    left: 0;                       /* Position from left */
+    width: 100%;                   /* Cover the entire width of the parent */
+    height: 100%;                  /* Cover the entire height of the parent */
+    background-color: red;
+    z-index: 10;                   /* Ensure it appears above other content */
+    pointer-events: none;          /* Prevent overlay from interfering with clicks */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
