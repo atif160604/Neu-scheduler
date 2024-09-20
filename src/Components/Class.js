@@ -3,7 +3,7 @@ import '../styles/Grid.css'
 
 export default function Subject() {
     return (
-        <div className="overlay">
+        <div>
             <p>Hello world</p>
         </div>
     );

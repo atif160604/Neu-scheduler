@@ -4,7 +4,7 @@ import Subject from './Class.js'
 export default function Grid() {
     return (
         <div className="parent">
-            <div className='child'>Time <Subject className='overlay'/></div>
+            <div className='child'>Time <div className='overlay'><Subject /></div></div>
             <div className='child'>Sunday</div>
             <div className='child'>Monday</div>
             <div className='child'>Tuesday</div>
@@ -18,15 +18,35 @@ export default function Grid() {
 }
 
 
+// function create() {
+//     let time = 0;
+//     const elements = [];
+//     const [classIndex, hrs] = addClass("Monday", 2, 5);
+//     for (let i = 0; i < 384; i++) {
+//         if (i % 16 === 0) {
+//             elements.push(<div className='child' key={i}>{changeTime(time)}</div>);
+//             time+=1;
+//         } else {
+//             elements.push(<div className='child' key={i}> </div>);
+//         }
+//     }
+//     return elements;
+// }
+
 function create() {
     let time = 0;
+    let count = 0;
     const elements = [];
-    const [className, hrs] = addClass("Monday", 2, 5);
+    let [classIndex, hrs] = addClass("Monday", 2, 5);
     for (let i = 0; i < 384; i++) {
         if (i % 16 === 0) {
             elements.push(<div className='child' key={i}>{changeTime(time)}</div>);
             time+=1;
-        } else {
+        } else if(i === classIndex && count < hrs) {
+            elements.push(<div className='child' key={i}> <div className='overlay'> <Subject /></div></div>);
+            classIndex += 8;
+            count += 1;
+        }else {
             elements.push(<div className='child' key={i}> </div>);
         }
     }
